@@ -22,9 +22,6 @@ function Header(){
     fontSize: '20px',
 
   };
-  var gabStyles = {
-    fontSize: '20px'
-  };
   return (
     <div style={headerStyles}>
       <button style={buttonStyles}><Link to='/'>Home</Link></button>

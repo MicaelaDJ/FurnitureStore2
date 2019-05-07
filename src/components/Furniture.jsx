@@ -23,8 +23,11 @@ function Furniture(props){
 
 Furniture.propTypes = {
   names: PropTypes.string.isRequired,
-  location:PropTypes.string.isRequired,
-  colors:PropTypes.string
+  description:PropTypes.string.isRequired,
+  colors:PropTypes.string,
+  images:PropTypes.object,
+  deliverable:PropTypes.string,
+  availability:PropTypes.string
 };
 
 export default Furniture;

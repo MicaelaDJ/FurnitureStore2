@@ -7,15 +7,15 @@ function NewFurnitureForm(){
         <input
           type='text'
           id='names'
-          placeholder='Pair Names'/>
+          placeholder='Furniture Name'/>
         <input
           type='text'
-          id='location'
-          placeholder='Location'/>
+          id='colors'
+          placeholder='Colors'/>
         <textarea
-          id='issue'
-          placeholder='Describe your issue.'/>
-        <button type='submit'>Help!</button>
+          id='description'
+          placeholder='Describe your future furniture.'/>
+        <button type='submit'>Submit</button>
       </form>
     </div>
   );
