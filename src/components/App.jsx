@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import FurnitureList from './FurnitureList';
+import NewFurnitureControl from './NewFurnitureControl';
 import { Switch, Route } from 'react-router-dom';
-import NewFurnitureForm from './NewFurnitureForm';
 import Error404 from './Error404';
 
 function App(){
@@ -11,7 +11,7 @@ function App(){
       <Header/>
       <Switch>
         <Route exact path='/' component={FurnitureList} />
-        <Route path='/newfurniture' component={NewFurnitureForm} />
+        <Route path='/newfurniture' component={NewFurnitureControl} />
         <Route component={Error404} />
       </Switch>
     </div>
