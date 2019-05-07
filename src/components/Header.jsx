@@ -28,12 +28,11 @@ function Header(){
   return (
     <div style={headerStyles}>
       <button style={buttonStyles}><Link to='/'>Home</Link></button>
-      <button style={buttonStyles}><Link to='/newticket'>Create Ticket</Link></button>
+      <button style={buttonStyles}><Link to='/newfurniture'>Create Furniture</Link></button>
       <button style={buttonStyles}>Notifications</button>
       <button style={buttonStyles}>Messages</button>
       <div style={rightStyles}>
         <input style={searchStyles} type='text' placeholder='Search'></input>
-        <input style={gabStyles} type='text' placeholder='Gab'></input>
       </div>
     </div>
 
