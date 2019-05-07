@@ -1,6 +1,7 @@
 import React from 'react';
 import ConfirmationQuestions from './ConfirmationQuesions';
 import NewFurnitureForm from './NewFurnitureForm';
+import PropTypes from 'prop-types';
 
 class NewFurnitureControl extends React.Component {
 
@@ -19,7 +20,7 @@ class NewFurnitureControl extends React.Component {
   render(){
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage){
-      currentlyVisibleContent = <NewFurnitureForm />;
+      currentlyVisibleContent = <NewFurnitureForm onNewFurnitureCreation={this.props.onNewFurnitureCreation}/>;
     } else {
       currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation={this.handleTroubleshootingConfirmation}/>;
     }
@@ -30,5 +31,9 @@ class NewFurnitureControl extends React.Component {
     );
   }
 }
+
+NewFurnitureControl.propTypes = {
+    onNewFurnitureCreation: PropTypes.func
+};
 
 export default NewFurnitureControl;
