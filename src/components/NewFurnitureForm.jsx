@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
+import Moment from 'moment';
 
 function NewFurnitureForm(props){
   let _names = null;
@@ -8,7 +10,7 @@ function NewFurnitureForm(props){
 
   function handleNewFurnitureFormSubmission(event) {
     event.preventDefault();
-    props.onNewFurnitureCreation({names: _names.value, colors: _colors.value, description: _description.value});
+    props.onNewFurnitureCreation({names: _names.value, colors: _colors.value, description: _description.value, id:v4(), timeOpen: new Moment()});
     _names.value = '';
     _colors.value = '';
     _description.value = '';

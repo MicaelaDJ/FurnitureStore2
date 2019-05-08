@@ -35,11 +35,10 @@ import PropTypes from 'prop-types';
 
 
 function FurnitureList(props){
-
   return (
     <div>
       <hr/>
-      {props.furnitureList.map((furniture, index) =>
+      {props.furnitureList.map((furniture) =>
         <Furniture 
           images={furniture.images}
           names={furniture.names}
@@ -47,14 +46,19 @@ function FurnitureList(props){
           colors={furniture.colors}
           deliverable={furniture.deliverable}
           availability={furniture.availability}
-          key={index} />
+          formattedWaitTime={furniture.formattedWaitTime}
+          currentRouterPath={props.currentRouterPath}
+          key={furniture.id}
+          onFurnitureSelection={props.onFurnitureSelection} />
       )}
     </div>
   );
 }
 
 FurnitureList.propTypes = {
-  furnitureList: PropTypes.array
+  furnitureList: PropTypes.array,
+  currentRouterPath: PropTypes.string,
+  onFurnitureSelection: PropTypes.func
 };
 
 export default FurnitureList;

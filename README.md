@@ -1,6 +1,6 @@
 # _Furniture Store Makeover_
 
-#### _An web application for a furniture store, Created 5/2/19, Updated 5/7/19_
+#### _An web application for a furniture store, Created 5/2/19, Updated 5/8/19_
 
 #### By _**Micaela Jawor**_
 
