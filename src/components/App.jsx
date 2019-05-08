@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterTicketList: []
+      masterFurnitureList: []
     };
     this.handleAddingNewFurnitureToList = this.handleAddingNewFurnitureToList.bind(this);
   }
@@ -26,8 +26,8 @@ class App extends React.Component {
       <div>
         <Header/>
         <Switch>
-          <Route exact path='/' component={FurnitureList} />
-          <Route path='/newfurniture' render={() => <NewFurnitureControl on NewFurnitureCreation={this.handleAddingNewFurnitureToList} />} />
+          <Route exact path='/' render={()=><FurnitureList furnitureList={this.state.masterFurnitureList} />} />
+          <Route path='/newfurniture' render={() => <NewFurnitureControl onNewFurnitureCreation={this.handleAddingNewFurnitureToList} />} />
           <Route component={Error404} />
         </Switch>
       </div>

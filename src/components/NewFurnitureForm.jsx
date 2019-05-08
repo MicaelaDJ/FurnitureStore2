@@ -1,16 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function NewFurnitureForm(props){
   let _names = null;
   let _colors = null;
   let _description = null;
 
-  function handleNewTicketFormSubmission(event) {
+  function handleNewFurnitureFormSubmission(event) {
     event.preventDefault();
-    console.log(_names.value);
-    console.log(_colors.value);
-    console.log(_description.value);
     props.onNewFurnitureCreation({names: _names.value, colors: _colors.value, description: _description.value});
     _names.value = '';
     _colors.value = '';
@@ -19,7 +16,7 @@ function NewFurnitureForm(props){
 
   return (
     <div>
-      <form onSubmit={handleNewTicketFormSubmission}>
+      <form onSubmit={handleNewFurnitureFormSubmission}>
         <input
           type='text'
           id='names'

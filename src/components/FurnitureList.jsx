@@ -1,8 +1,9 @@
 import React from 'react';
 import Furniture from './Furniture';
-import blueChair from '../assets/images/bluechair.jpg'; 
-import table from '../assets/images/table.jpg'; 
-import chaise from '../assets/images/chaise.jpeg'; 
+import PropTypes from 'prop-types';
+// import blueChair from '../assets/images/bluechair.jpg'; 
+// import table from '../assets/images/table.jpg'; 
+// import chaise from '../assets/images/chaise.jpeg'; 
 
 
 // var masterFurnitureList = [
@@ -33,12 +34,12 @@ import chaise from '../assets/images/chaise.jpeg';
 // ];
 
 
-function FurnitureList(){
+function FurnitureList(props){
 
   return (
     <div>
       <hr/>
-      {masterFurnitureList.map((furniture, index) =>
+      {props.furnitureList.map((furniture, index) =>
         <Furniture 
           images={furniture.images}
           names={furniture.names}
@@ -51,5 +52,9 @@ function FurnitureList(){
     </div>
   );
 }
+
+FurnitureList.propTypes = {
+  furnitureList: PropTypes.array
+};
 
 export default FurnitureList;

@@ -33,7 +33,7 @@ class NewFurnitureControl extends React.Component {
 }
 
 NewFurnitureControl.propTypes = {
-    onNewFurnitureCreation: PropTypes.func
+  onNewFurnitureCreation: PropTypes.func
 };
 
 export default NewFurnitureControl;

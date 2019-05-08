@@ -13,7 +13,7 @@ function Furniture(props){
       <h3>{props.names}</h3>
       <p>{props.images}</p>
       <p>{props.description}</p>
-      <p><em>{props.colors}</em></p>
+      <p><em>The colors available are: {props.colors}</em></p>
       <p>{props.deliverable}</p>
       <p>{props.availability}</p>
       <hr/>
