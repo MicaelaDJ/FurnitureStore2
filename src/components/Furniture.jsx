@@ -13,7 +13,6 @@ function Furniture(props){
     <div style={furnitureStyles}>
       <h3>{props.names}</h3>
       <p>{props.images}</p>
-      <p>{props.description}</p>
       <p><em>The colors available are: {props.colors}</em></p>
       <p>{props.deliverable}</p>
       <p>{props.availability}</p>
@@ -22,7 +21,7 @@ function Furniture(props){
     </div>;
   if (props.currentRouterPath === '/admin'){
     return (
-      <div onClick={() => {alert('You just selected the new furniture item: ' + props.names);}}>
+      <div onClick={() => {props.onFurnitureSelection(props.furnitureId);}}>
         {furnitureInformation}
       </div>
     );
@@ -59,7 +58,9 @@ Furniture.propTypes = {
   deliverable:PropTypes.string,
   availability:PropTypes.string,
   formattedWaitTime: PropTypes.string.isRequired,
-  currentRouterPath: PropTypes.string
+  currentRouterPath: PropTypes.string,
+  onFurnitureSelection: PropTypes.func,
+  furnitureId: PropTypes.string.isRequired
 };
 
 export default Furniture;

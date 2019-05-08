@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterFurnitureList: [],
+      masterFurnitureList: {},
       selectedFurniture: null
     };
     this.handleAddingNewFurnitureToList = this.handleAddingNewFurnitureToList.bind(this);
@@ -31,23 +31,23 @@ class App extends React.Component {
   }
 
   updateFurnitureElapsedWaitTime() {
-    let newMasterFurnitureList = this.state.masterFurnitureList.slice();
-    newMasterFurnitureList.forEach((furniture) =>
-      furniture.formattedWaitTime = (furniture.timeOpen).fromNow(true)
-    );
+    var newMasterFurnitureList = Object.assign({}, this.state.masterFurnitureList);
+    Object.keys(newMasterFurnitureList).forEach(furnitureId => {
+      newMasterFurnitureList[furnitureId].formattedWaitTime = (newMasterFurnitureList[furnitureId].timeOpen).fromNow(true)
+    });
     this.setState({masterFurnitureList: newMasterFurnitureList});
   }
 
   handleAddingNewFurnitureToList(newFurniture){
-    var newMasterFurnitureList = this.state.masterFurnitureList.slice();
-    newFurniture.formattedWaitTime = (newFurniture.timeOpen).fromNow(true);
-    newMasterFurnitureList.push(newFurniture);
+    var newMasterFurnitureList = Object.assign({}, this.state.masterFurnitureList, {
+      [newFurniture.id]: newFurniture
+    });
+    newMasterFurnitureList[newFurniture.id].formattedWaitTime = newMasterFurnitureList[newFurniture.id].timeOpen.fromNow(true);
     this.setState({masterFurnitureList: newMasterFurnitureList});
   }
 
-  handleChangingSelectedFurniture(furniture){
-    this.setState({selectedFurniture: furniture});
-    alert('The selected funriture is now: '+ this.state.selectedFurniture.names);
+  handleChangingSelectedFurniture(furnitureId){
+    this.setState({selectedFurniture: furnitureId});
   }
 
   render(){
@@ -58,7 +58,8 @@ class App extends React.Component {
           <Route exact path='/' render={()=><FurnitureList furnitureList={this.state.masterFurnitureList} />} />
           <Route path='/newfurniture' render={()=><NewFurnitureControl onNewFurnitureCreation={this.handleAddingNewFurnitureToList} />} />
           <Route path='/admin' render={(props)=><Admin furnitureList={this.state.masterFurnitureList} currentRouterPath={props.location.pathname}
-          onFurnitureSelection={this.handleChangingSelectedFurniture} />} />
+            onFurnitureSelection={this.handleChangingSelectedFurniture}
+            selectedFurniture={this.state.selectedFurniture} />} />
           <Route component={Error404} />
         </Switch>
       </div>

@@ -38,8 +38,9 @@ function FurnitureList(props){
   return (
     <div>
       <hr/>
-      {props.furnitureList.map((furniture) =>
-        <Furniture 
+      {Object.keys(props.furnitureList).map(function(furnitureId) {
+        var furniture = props.furnitureList[furnitureId];
+        return <Furniture 
           images={furniture.images}
           names={furniture.names}
           description={furniture.description}
@@ -48,15 +49,15 @@ function FurnitureList(props){
           availability={furniture.availability}
           formattedWaitTime={furniture.formattedWaitTime}
           currentRouterPath={props.currentRouterPath}
-          key={furniture.id}
+          furnitureId={furniture.id}
           onFurnitureSelection={props.onFurnitureSelection} />
-      )}
+      })}
     </div>
   );
 }
 
 FurnitureList.propTypes = {
-  furnitureList: PropTypes.array,
+  furnitureList: PropTypes.object,
   currentRouterPath: PropTypes.string,
   onFurnitureSelection: PropTypes.func
 };
