@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
 // import Moment from 'moment';
 import Admin from './Admin';
+import { v4 } from 'uuid';
 
 class App extends React.Component {
 
@@ -33,16 +34,17 @@ class App extends React.Component {
   updateFurnitureElapsedWaitTime() {
     var newMasterFurnitureList = Object.assign({}, this.state.masterFurnitureList);
     Object.keys(newMasterFurnitureList).forEach(furnitureId => {
-      newMasterFurnitureList[furnitureId].formattedWaitTime = (newMasterFurnitureList[furnitureId].timeOpen).fromNow(true)
+      newMasterFurnitureList[furnitureId].formattedWaitTime = (newMasterFurnitureList[furnitureId].timeOpen).fromNow(true);
     });
     this.setState({masterFurnitureList: newMasterFurnitureList});
   }
 
   handleAddingNewFurnitureToList(newFurniture){
+    var newFurnitureId = v4();
     var newMasterFurnitureList = Object.assign({}, this.state.masterFurnitureList, {
-      [newFurniture.id]: newFurniture
+      [newFurnitureId]: newFurniture
     });
-    newMasterFurnitureList[newFurniture.id].formattedWaitTime = newMasterFurnitureList[newFurniture.id].timeOpen.fromNow(true);
+    newMasterFurnitureList[newFurnitureId].formattedWaitTime = newMasterFurnitureList[newFurnitureId].timeOpen.fromNow(true);
     this.setState({masterFurnitureList: newMasterFurnitureList});
   }
 

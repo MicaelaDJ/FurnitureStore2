@@ -26,6 +26,7 @@ function Header(){
     <div style={headerStyles}>
       <button style={buttonStyles}><Link to='/'>Home</Link></button>
       <button style={buttonStyles}><Link to='/newfurniture'>Create Furniture</Link></button>
+      <button style={buttonStyles}><Link to='/admin'>Admin</Link></button>
       <div style={rightStyles}>
         <input style={searchStyles} type='text' placeholder='Search'></input>
       </div>

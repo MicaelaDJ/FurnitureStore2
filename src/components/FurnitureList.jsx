@@ -49,8 +49,9 @@ function FurnitureList(props){
           availability={furniture.availability}
           formattedWaitTime={furniture.formattedWaitTime}
           currentRouterPath={props.currentRouterPath}
-          furnitureId={furniture.id}
-          onFurnitureSelection={props.onFurnitureSelection} />
+          key={furnitureId}
+          furnitureId={furnitureId}
+          onFurnitureSelection={props.onFurnitureSelection} />;
       })}
     </div>
   );
